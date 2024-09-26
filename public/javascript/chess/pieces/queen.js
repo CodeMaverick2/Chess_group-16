@@ -5,9 +5,10 @@ var Queen = function(config){
 
 Queen.prototype = new Piece({});
 Queen.prototype.moveTo = function(newPosition){
-    if(this.isValidPosition(newPosition)){
+    if(this.isValidPosition(newPosition) && this.color === this.board.currentPlayer){
         this.position = newPosition.col + newPosition.row;
         this.render();
+        this.board.switchPlayer();
     }else{
         throw new Error("Invalid Queen move");
     }

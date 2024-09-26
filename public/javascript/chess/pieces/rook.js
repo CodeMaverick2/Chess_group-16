@@ -7,9 +7,10 @@ var Rook = function(config){
 
 Rook.prototype = new Piece({});
 Rook.prototype.moveTo = function(newPosition){
-    if(this.isValid(newPosition)){
+    if(this.isValid(newPosition) && this.color === this.board.currentPlayer){
         this.position = newPosition.col + newPosition.row;
         this.render();
+        this.board.switchPlayer();
     }else{
         throw new Error("The path is invalid");
     }

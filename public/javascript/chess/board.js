@@ -1,6 +1,7 @@
 var Board = function(config){
     this.root_id = config.root_id;
     this.$el = document.getElementById(this.root_id);
+    this.currentPlayer = 'white';
     this.generateBoardDom();
     this.addListeners();
 }
@@ -199,3 +200,9 @@ Board.prototype.renderAllPieces = function() {
         }
     });
 };
+
+Board.prototype.switchPlayer = function(){
+    // Toggling the color each time to change currentPlayer
+    this.currentPlayer = this.currentPlayer === 'white' ? 'black' : 'white';
+    this.selectedPiece = false;
+}

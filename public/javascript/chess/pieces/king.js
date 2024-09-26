@@ -24,9 +24,10 @@ King.prototype.isValidPosition = function(targetPosition) {
 };
 
 King.prototype.moveTo = function(targetPosition) {
-    if (this.isValidPosition(targetPosition)) {
+    if (this.isValidPosition(targetPosition) && this.color === this.board.currentPlayer) {
         this.position = targetPosition.col + targetPosition.row;
         this.render();
+        this.board.switchPlayer();
     } else {
         console.warn("Move not allowed");
     }
