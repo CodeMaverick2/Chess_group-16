@@ -6,9 +6,10 @@ var Bishop = function(config){
 Bishop.prototype = new Piece({});
 
 Bishop.prototype.moveTo = function(newPosition){
-    if(this.isValidPosition(newPosition)){
+    if(this.isValidPosition(newPosition) && this.color === this.board.currentPlayer){
         this.position = newPosition.col + newPosition.row;
         this.render();
+        this.board.switchPlayer();
     }else{
         throw new Error("Invalid Bishop move");
     }
