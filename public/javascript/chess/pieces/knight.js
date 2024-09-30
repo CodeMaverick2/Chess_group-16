@@ -6,9 +6,12 @@ var Knight = function(config) {
 Knight.prototype = new Piece({});
 
 Knight.prototype.moveTo = function(newPosition) {
-    if (this.isValidPosition(newPosition) && this.color === this.board.currentPlayer) {
+    if (this.isValidPosition(newPosition) && (this.color === this.board.currentPlayer || this.board.currentPlayer=='')) {
         this.position = newPosition.col + newPosition.row;
         this.render();
+        if(this.board.currentPlayer==''){
+            this.board.currentPlayer = this.color;
+        }
         this.board.switchPlayer();
     } else {
         throw new Error("Invalid Knight move");

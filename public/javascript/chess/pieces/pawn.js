@@ -38,9 +38,12 @@ Pawn.prototype.isValidPosition = function(targetPosition){
 }
 
 Pawn.prototype.moveTo = function(targetPosition){    
-    if(this.isValidPosition(targetPosition) && this.color === this.board.currentPlayer){
+    if(this.isValidPosition(targetPosition) && (this.color === this.board.currentPlayer || this.board.currentPlayer=='')){
         this.position = targetPosition.col + targetPosition.row;
         this.render();
+        if(this.board.currentPlayer==''){
+            this.board.currentPlayer = this.color;
+        }
         this.board.switchPlayer();
     }else{
         //NOOP

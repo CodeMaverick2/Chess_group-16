@@ -44,5 +44,5 @@ Piece.prototype.render = function(){
 }
 
 Piece.prototype.kill = function(targetPiece){
-    console.log("Method not implemeted by: " + typeof(this));
+    // console.log("Method not implemeted by: " + typeof(this));
 }
