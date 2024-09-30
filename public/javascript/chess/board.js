@@ -1,7 +1,7 @@
 var Board = function(config){
     this.root_id = config.root_id;
     this.$el = document.getElementById(this.root_id);
-    this.currentPlayer = 'white';
+    this.currentPlayer = '';
     this.generateBoardDom();
     this.addListeners();
 }
